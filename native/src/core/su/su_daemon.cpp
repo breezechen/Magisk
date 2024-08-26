@@ -275,7 +275,7 @@ void su_daemon_handler(int client, const sock_cred *cred) {
     if (ctx.info->access.policy == QUERY) {
         int fd = app_request(ctx);
         if (fd < 0) {
-            ctx.info->access.policy = DENY;
+            ctx.info->access = SILENT_SU_ACCESS;
         } else {
             int ret = read_int_be(fd);
             ctx.info->access.policy = ret < 0 ? DENY : static_cast<policy_t>(ret);
