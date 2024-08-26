@@ -220,7 +220,7 @@ static shared_ptr<su_info> get_su_info(unsigned uid) {
 
         // If still not determined, check if manager exists
         if (info->mgr_uid < 0) {
-            info->access = NO_SU_ACCESS;
+            info->access = SILENT_SU_ACCESS;
             return info;
         }
     }
